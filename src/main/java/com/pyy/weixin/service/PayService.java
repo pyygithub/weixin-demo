@@ -1,5 +1,6 @@
 package com.pyy.weixin.service;
 
+import com.lly835.bestpay.model.PayResponse;
 import com.pyy.weixin.dto.OrderDTO;
 
 /**
@@ -7,5 +8,7 @@ import com.pyy.weixin.dto.OrderDTO;
  */
 public interface PayService {
 
-    void create(OrderDTO orderDTO);
+    PayResponse create(OrderDTO orderDTO);
+
+    PayResponse notify(String notifyData);
 }
