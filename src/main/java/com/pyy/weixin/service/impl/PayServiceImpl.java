@@ -4,6 +4,8 @@ import com.alibaba.fastjson.JSON;
 import com.lly835.bestpay.enums.BestPayTypeEnum;
 import com.lly835.bestpay.model.PayRequest;
 import com.lly835.bestpay.model.PayResponse;
+import com.lly835.bestpay.model.RefundRequest;
+import com.lly835.bestpay.model.RefundResponse;
 import com.lly835.bestpay.service.impl.BestPayServiceImpl;
 import com.pyy.weixin.dto.OrderDTO;
 import com.pyy.weixin.enums.ResultEnum;
@@ -15,7 +17,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 
 /**
  * Created by Administrator on 2018/7/11 0011.
@@ -81,5 +82,23 @@ public class PayServiceImpl implements PayService {
         orderService.paid(orderDTO);
 
         return payResponse;
+    }
+
+    /**
+     * 微信退款
+     * @param orderDTO
+     */
+    @Override
+    public RefundResponse refund(OrderDTO orderDTO) {
+        RefundRequest refundRequest = new RefundRequest();
+        refundRequest.setOrderId(orderDTO.getOrderId());
+        refundRequest.setOrderAmount(orderDTO.getOrderAmount().doubleValue());
+        refundRequest.setPayTypeEnum(BestPayTypeEnum.WXPAY_H5);
+        log.info("【微信退款】request={}", JSON.toJSONString(refundRequest));
+
+        RefundResponse refundResponse = bestPayService.refund(refundRequest);
+        log.info("【微信退款】response={}", JSON.toJSONString(refundResponse));
+
+        return refundResponse;
     }
 }
