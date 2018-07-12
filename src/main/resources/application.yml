@@ -1,4 +1,5 @@
 
+
 # Î¢ÐÅ¹«ÖÚºÅ
 wechat:
   mpAppId: wx7a2096d334ecab96
@@ -7,3 +8,13 @@ wechat:
   mchKey:
   keyPath:
   notifyUrl:
+
+projectUrl:
+  wechatMpAuthorize: http://panyy.nat300.top
+  wechatOpenAuthorize: http://panyy.nat300.top
+  systemUrl:
+
+spring:
+  redis:
+    host: 127.0.0.1
+    port: 6379

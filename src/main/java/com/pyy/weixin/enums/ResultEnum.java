@@ -10,6 +10,7 @@ import lombok.Getter;
 public enum ResultEnum {
 
     SUCCESS(0, "成功"),
+    FAIL(2, "失败"),
 
     PARAM_ERROR(1, "参数不正确"),
 
@@ -45,7 +46,9 @@ public enum ResultEnum {
 
     LOGIN_FAIL(25, "登录失败, 登录信息不正确"),
 
-    LOGOUT_SUCCESS(26, "登出成功"),
+    LOGIN_SUCCESS(26, "登出成功"),
+    LOGOUT_SUCCESS(27, "登出成功"),
+    NEED_LOGIN(28, "用户未登录"),
     ;
 
     private Integer code;
