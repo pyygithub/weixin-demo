@@ -4,6 +4,8 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+import java.util.Map;
+
 /**
  * 微信公众号信息配置
  * Created by Administrator on 2018/7/11 0011.
@@ -53,4 +55,9 @@ public class WeChatAccountConfig {
      * 微信支付异步通知地址
      */
     private String notifyUrl;
+
+    /**
+     * 模板消息id集合
+     */
+    private Map<String, String> templateId;
 }

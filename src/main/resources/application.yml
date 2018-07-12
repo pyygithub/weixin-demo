@@ -8,6 +8,9 @@ wechat:
   mchKey:
   keyPath:
   notifyUrl:
+  templateId:
+    orderStatus: 1lPELdWhoqnS8EPStWoRjy0cF0DlZtsGRH8XWHZNMtY
+
 
 projectUrl:
   wechatMpAuthorize: http://panyy.nat300.top

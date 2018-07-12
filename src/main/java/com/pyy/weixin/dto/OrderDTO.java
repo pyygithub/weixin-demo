@@ -1,5 +1,9 @@
 package com.pyy.weixin.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.pyy.weixin.enums.OrderStatusEnum;
+import com.pyy.weixin.enums.PayStatusEnum;
+import com.pyy.weixin.utils.EnumUtil;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -41,4 +45,13 @@ public class OrderDTO {
     /** 更新时间. */
     private Date updateTime;
 
+    @JsonIgnore
+    public OrderStatusEnum getOrderStatusEnum() {
+        return EnumUtil.getByCode(orderStatus, OrderStatusEnum.class);
+    }
+
+    @JsonIgnore
+    public PayStatusEnum getPayStatusEnum() {
+        return EnumUtil.getByCode(payStatus, PayStatusEnum.class);
+    }
 }
